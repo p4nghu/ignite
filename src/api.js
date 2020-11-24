@@ -12,9 +12,11 @@ const getFormatDate = () => {
   };
 };
 
-const popularGames =  `games?dates=${getFormatDate().lastYear},${getFormatDate().currentDate}&ordering=-rating&page_size=10`;
-const upcomingGames = `games?dates=${getFormatDate().currentDate},${getFormatDate().nextYear}&ordering=-added&page_size=10`;
-const newGames = `games?dates=${getFormatDate().lastYear},${getFormatDate().currentDate}&ordering=-released&page_size=10`;
-export const popularGamesURL = () => `${baseUrl}${popularGames}`;
+const upcomingGames = `games?dates=${getFormatDate().currentDate},${getFormatDate().nextYear}&ordering=-added&page_size=12`;
+const newGames = `games?dates=${getFormatDate().lastYear},${getFormatDate().currentDate}&ordering=-released&page_size=12`;
+export const popularGamesURL = () => `https://api.rawg.io/api/games/lists/greatest?discover=true&ordering=-added&page_size=24`;
 export const upcomingGamesURL = () => `${baseUrl}${upcomingGames}`;
 export const newGamesURL = () => `${baseUrl}${newGames}`;
+export const detailsURL = (id) =>  `${baseUrl}games/${id}`
+export const screenShotsURL = (id) => `${baseUrl}games/${id}/screenshots`
+export const searchGamesURL = (query) => `${baseUrl}games?search="${query}"&page_size=6`

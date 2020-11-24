@@ -3,13 +3,15 @@ import { render } from "react-dom";
 import App from "./app/App";
 import { Provider } from "react-redux";
 import store from "./app/store";
-import {loadGames} from './actions/gamesAction'
-store.dispatch(loadGames)
+import { BrowserRouter } from "react-router-dom";
 render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>,
+
   document.getElementById("root")
 );
